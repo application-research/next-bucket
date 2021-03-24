@@ -14,11 +14,20 @@ function Home(props) {
     fetchData();
   }, []);
 
-  return <App>Hello World</App>;
+  return (
+    <App>
+      <video controls loop width="480px">
+        <source
+          src={`${props.gateway}/QmVHhLqYe6Pt8RFs9Dr9hwhzhkAr7RgZa8aeDPCYNUvmfC/nft.mp4`}
+          type="video/mp4"
+        />
+      </video>
+    </App>
+  );
 }
 
 Home.getInitialProps = async (ctx) => {
-  return { animal: process.env.ANIMAL };
+  return { gateway: process.env.IPFS_GATEWAY };
 };
 
 export default Home;

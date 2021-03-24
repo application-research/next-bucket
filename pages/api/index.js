@@ -21,5 +21,5 @@ const cors = initMiddleware(
 export default async function handler(req, res) {
   await cors(req, res);
 
-  res.json({ message: process.env.TEST });
+  res.json({ gateway: process.env.IPFS_GATEWAY });
 }
