@@ -8,6 +8,7 @@
   "dependencies": {
     "@babel/preset-env": "^7.13.12",
     "@babel/preset-react": "^7.12.13",
+    "@textile/hub": "^6.1.2",
     "babel-plugin-module-resolver": "^4.1.0",
     "next": "latest",
     "react": "^16.7.0",
