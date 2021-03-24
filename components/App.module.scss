@@ -1,3 +1,34 @@
 .app {
-  font-size: 24px;
+  font-weight: 400;
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (max-width: 960px) {
+    display: block;
+  }
+}
+
+.left {
+  width: 488px;
+  padding: 24px 0 24px 0;
+  flex-shrink: 0;
+
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+}
+
+.right {
+  min-width: 10%;
+  width: 100%;
+  padding: 24px 0 24px 0;
+  border-left: 1px solid #1d1c1c;
+
+  @media (max-width: 960px) {
+    border-left: 0px;
+  }
 }

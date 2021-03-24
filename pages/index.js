@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import App from "~/components/App";
+import Sidebar from "~/components/Sidebar";
 
 function Home(props) {
   console.log(props);
@@ -15,7 +16,7 @@ function Home(props) {
   }, []);
 
   return (
-    <App>
+    <App sidebar={<Sidebar />}>
       <video controls loop width="480px">
         <source
           src={`${props.gateway}/QmVHhLqYe6Pt8RFs9Dr9hwhzhkAr7RgZa8aeDPCYNUvmfC/nft.mp4`}
