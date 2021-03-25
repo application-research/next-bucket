@@ -103,8 +103,8 @@ section {
 html,
 body {
   font-size: 16px;
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
   font-family: -apple-system, BlinkMacSystemFont, helvetica neue, helvetica, sans-serif;
   scrollbar-width: none;
   -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -112,4 +112,34 @@ body {
   ::-webkit-scrollbar {
     display: none;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.5;
+  font-weight: 600;
+  font-size: 16px;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+p {
+  line-height: 1.5;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+b {
+  font-weight: 700;
+  color: blue;
+}
+
+i {
+  font-weight: 700;
+  font-style: normal;
+  color: lime;
 }

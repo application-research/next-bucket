@@ -1,3 +1,14 @@
+.top {
+  height: 48px;
+  background: #000000;
+  color: #ffffff;
+  width: 100%;
+  padding: 0 24px 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .app {
   font-weight: 400;
   width: 100%;
@@ -14,10 +25,12 @@
 
 .left {
   width: 488px;
-  padding: 24px 0 24px 0;
+  padding: 24px 0 88px 0;
   flex-shrink: 0;
+  border-right: 1px solid #ececec;
 
   @media (max-width: 960px) {
+    border-right: 0px;
     width: 100%;
   }
 }
@@ -26,9 +39,4 @@
   min-width: 10%;
   width: 100%;
   padding: 24px 0 24px 0;
-  border-left: 1px solid #1d1c1c;
-
-  @media (max-width: 960px) {
-    border-left: 0px;
-  }
 }

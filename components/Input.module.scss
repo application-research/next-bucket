@@ -1,0 +1,84 @@
+.input {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 40px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 4px;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  outline: 0;
+  border: 1px solid #ececec;
+  box-sizing: border-box;
+  transition: 200ms ease all;
+  padding: 0 16px 0 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+
+  &:focus {
+    outline: 0;
+    border: 1px solid blue;
+  }
+
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #999;
+    opacity: 1; /* Firefox */
+  }
+}
+
+.unit {
+  color: #999;
+  font-size: 14px;
+  position: absolute;
+  top: 12px;
+  right: 24px;
+}
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  max-width: 568px;
+  min-width: 188px;
+}
+
+.options {
+  margin-top: 8px;
+  border-radius: 4px;
+  border: 1px solid #ececec;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+}
+
+.item {
+  padding: 8px 16px 8px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.left {
+  min-width: 10%;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 600;
+  padding-top: 2px;
+}
+
+.right {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  line-height: 12px;
+  padding-top: 4px;
+
+  &:hover {
+    color: blue;
+  }
+}

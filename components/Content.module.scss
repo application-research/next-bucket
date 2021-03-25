@@ -1,0 +1,47 @@
+.content {
+  padding: 24px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.table {
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.row {
+  width: 100%;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.heading {
+  border: 1px solid #ececec;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 8px;
+  text-align: left;
+}
+
+.cell {
+  border: 1px solid #ececec;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 8px;
+  text-align: left;
+}
+
+.delete {
+  text-decoration: underline;
+  color: blue;
+}
