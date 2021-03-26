@@ -101,6 +101,9 @@ export const listBuckets = async (options) => {
       const data = path.item;
 
       userBuckets[k].bucketSize = data.size;
+      userBuckets[k].cid = data.cid;
+      userBuckets[k].isDir = data.isDir;
+      userBuckets[k].items = data.items;
     } catch (e) {
       console.log(e);
       return {

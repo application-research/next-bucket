@@ -30,11 +30,12 @@ function Home(props) {
           state={state}
           onChange={setState}
           onSetToken={async (token) => {
-            setState({ ...state, token: null, key: token, loading: true });
-            await R.onListBuckets({ ...state, token: null, key: token, loading: true }, setState);
+            const next = { ...state, token: null, key: token, loading: true };
+            setState(next);
+            await R.onListBuckets(next, setState);
           }}
           onGenerateToken={async () => {
-            onSetLoading(state, setState);
+            setState({ ...state, loading: true });
             await R.onGenerateToken(state, setState);
           }}
         />
@@ -44,17 +45,28 @@ function Home(props) {
         gateway={props.gateway}
         state={state}
         onChange={setState}
+        onSelectBucket={({ bucketKey }) => {
+          setState({ ...state, selectedBucketKey: bucketKey });
+        }}
         onListBuckets={async () => {
-          onSetLoading(state, setState);
+          setState({ ...state, loading: true });
           await R.onListBuckets(state, setState);
         }}
         onCreateBucket={async () => {
-          onSetLoading(state, setState);
+          setState({ ...state, loading: true });
           await R.onCreateBucket(state, setState);
         }}
         onDeleteBucket={async (options) => {
-          onSetLoading(state, setState);
+          setState({ ...state, loading: true });
           await R.onDeleteBucket(state, setState, options);
+        }}
+        onAddFile={async (options) => {
+          // setState({ ...state, loading: true });
+          await R.onAddFile(state, setState, options);
+        }}
+        onMakeFilecoinStorageDeal={async (options) => {
+          // setState({ ...state, loading: true });
+          await R.onMakeStorageDeal(state, setState, options);
         }}
       />
     </App>

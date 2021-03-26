@@ -7,6 +7,11 @@ import Input from "~/components/Input";
 import Button from "~/components/Button";
 
 export default function Content(props) {
+  const selectedBucket =
+    props.state.buckets && props.state.buckets.find((b) => b.key === props.state.selectedBucketKey);
+
+  console.log(selectedBucket);
+
   return (
     <div className={styles.content}>
       {U.isEmpty(props.state.key) ? (
@@ -26,23 +31,31 @@ export default function Content(props) {
               <tr className={styles.row}>
                 <th className={styles.heading}>Name</th>
                 <th className={styles.heading}>Size</th>
-                <th className={styles.heading}>Path</th>
+                <th className={styles.heading}>Files</th>
+                <th className={styles.heading}>CID</th>
               </tr>
               {props.state.buckets &&
                 props.state.buckets.map((b) => {
-                  console.log(b);
                   const url = `${props.gateway}${b.path}`;
                   return (
                     <tr key={b.path} className={styles.row}>
-                      <td className={styles.cell}>{b.name}</td>
+                      <td className={styles.cell}>
+                        <span
+                          className={styles.action}
+                          onClick={() => props.onSelectBucket({ bucketKey: b.key })}
+                        >
+                          {b.name}
+                        </span>
+                      </td>
                       <td className={styles.cell}>{U.bytesToSize(b.bucketSize)}</td>
+                      <td className={styles.cell}>{b.items.length}</td>
                       <td className={styles.cell}>
                         <a href={url} target="_blank">
-                          {url}
+                          {b.cid}
                         </a>{" "}
                         {b.name !== "data" ? (
                           <span
-                            className={styles.delete}
+                            className={styles.action}
                             onClick={() =>
                               props.onDeleteBucket({ bucketName: b.name, bucketKey: b.key })
                             }
@@ -67,6 +80,68 @@ export default function Content(props) {
             </Button>
             <Button onClick={props.onCreateBucket} loading={props.state.loading}>
               Create
+            </Button>
+          </div>
+        </React.Fragment>
+      )}
+
+      {selectedBucket && (
+        <React.Fragment>
+          <h2 style={{ marginTop: 48 }}>Selected bucket</h2>
+          <p>
+            <a
+              href={`https://ipfs.io/ipfs/${selectedBucket.cid}`}
+              target="_blank"
+            >{`https://ipfs.io/ipfs/${selectedBucket.cid}`}</a>
+          </p>
+          <br />
+          <table className={styles.table}>
+            <tbody>
+              <tr className={styles.row}>
+                <th className={styles.heading}>Name</th>
+                <th className={styles.heading}>Size</th>
+                <th className={styles.heading}>CID</th>
+              </tr>
+              {selectedBucket.items.map((i) => {
+                const url = `${props.gateway}${i.path}`;
+                return (
+                  <tr key={i.path} className={styles.row}>
+                    <td className={styles.cell}>{i.name}</td>
+                    <td className={styles.cell}>{U.bytesToSize(i.size)}</td>
+                    <td className={styles.cell}>
+                      <a href={url} target="_blank">
+                        {i.cid}
+                      </a>{" "}
+                      {i.name !== ".textileseed" ? (
+                        <span className={styles.action}>(delete)</span>
+                      ) : null}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+
+          <div className={styles.actions}>
+            <Button
+              loading={props.state.loading}
+              onClick={() =>
+                props.onAddFile({ bucketName: selectedBucket.name, bucketKey: selectedBucket.key })
+              }
+              style={{ marginRight: 16 }}
+            >
+              Add File
+            </Button>
+            <Button
+              loading={props.state.loading}
+              onClick={() => {
+                props.onMakeStorageDeal({
+                  bucketName: selectedBucket.name,
+                  bucketKey: selectedBucket.key,
+                });
+              }}
+            >
+              Make Filecoin Storage Deal
             </Button>
           </div>
         </React.Fragment>

@@ -41,7 +41,12 @@
   text-align: left;
 }
 
-.delete {
+.action {
   text-decoration: underline;
   color: blue;
+  cursor: pointer;
+
+  :hover {
+    color: darkblue;
+  }
 }

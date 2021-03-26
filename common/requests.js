@@ -71,3 +71,15 @@ export async function onDeleteBucket(state, setState, options) {
 
   return await onListBuckets(state, setState);
 }
+
+export async function onAddFile(state, setState, options) {
+  alert("coming soon");
+}
+
+export async function onMakeStorageDeal(state, setState, options) {
+  alert("coming soon");
+}
+
+export async function onDeleteFile(state, setState) {
+  alert("coming soon");
+}
