@@ -14,6 +14,19 @@ const Button = (props) => {
     );
   }
 
+  if (!U.isEmpty(props.type)) {
+    return (
+      <label
+        className={styles.button}
+        onClick={props.onClick}
+        children={props.children}
+        htmlFor={props.htmlFor}
+        type={props.type}
+        style={props.style}
+      />
+    );
+  }
+
   return (
     <button
       {...props}

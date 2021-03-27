@@ -5,6 +5,26 @@ const WEEK = DAY * 7;
 const MONTH = (DAY * 365) / 12;
 const YEAR = DAY * 365;
 
+export const getBucketDataFromHeader = (header) => {
+  try {
+    const entity = header.replace("next-daemon-bucket ", "");
+    const split = entity.split("|");
+    return {
+      bucketName: split[0],
+      bucketKey: split[1],
+      key: split[2],
+    };
+  } catch (e) {
+    console.log(e);
+    return {
+      error: e.message,
+      bucketName: null,
+      bucketKey: null,
+      key: null,
+    };
+  }
+};
+
 export const isEmpty = (string) => {
   // NOTE(jim): If a number gets passed in, it isn't considered empty for zero.
   if (string === 0) {

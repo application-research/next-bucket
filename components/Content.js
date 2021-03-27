@@ -87,7 +87,7 @@ export default function Content(props) {
 
       {selectedBucket && (
         <React.Fragment>
-          <h2 style={{ marginTop: 48 }}>Selected bucket</h2>
+          <h2 style={{ marginTop: 48 }}>buckets/{selectedBucket.name}</h2>
           <p>
             <a
               href={`https://ipfs.io/ipfs/${selectedBucket.cid}`}
@@ -113,7 +113,9 @@ export default function Content(props) {
                         {i.cid}
                       </a>{" "}
                       {i.name !== ".textileseed" ? (
-                        <span className={styles.action}>(delete)</span>
+                        <span className={styles.action} onClick={() => window.alert("coming soon")}>
+                          (delete)
+                        </span>
                       ) : null}
                     </td>
                   </tr>
@@ -125,9 +127,8 @@ export default function Content(props) {
           <div className={styles.actions}>
             <Button
               loading={props.state.loading}
-              onClick={() =>
-                props.onAddFile({ bucketName: selectedBucket.name, bucketKey: selectedBucket.key })
-              }
+              htmlFor="file"
+              type="label"
               style={{ marginRight: 16 }}
             >
               Add File

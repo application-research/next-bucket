@@ -5,6 +5,16 @@ import App from "~/components/App";
 import Sidebar from "~/components/Sidebar";
 import Content from "~/components/Content";
 
+const HiddenFileInput = (props) => (
+  <input
+    style={{ position: "absolute", top: 0, left: 0, height: 1, width: 1, opacity: 0 }}
+    multiple
+    type="file"
+    id="file"
+    onChange={props.onChange}
+  />
+);
+
 function onSetLoading(state, setState) {
   return setState({ ...state, loading: true });
 }
@@ -41,6 +51,21 @@ function Home(props) {
         />
       }
     >
+      <HiddenFileInput
+        onChange={async (e) => {
+          console.log("on add file");
+          e.persist();
+
+          const next = { ...state, loading: true };
+          setState(next);
+
+          let file = e.target.files[0];
+          let data = new FormData();
+          data.append("data", file);
+
+          return await R.onAddFile(next, setState, data);
+        }}
+      />
       <Content
         gateway={props.gateway}
         state={state}
@@ -59,10 +84,6 @@ function Home(props) {
         onDeleteBucket={async (options) => {
           setState({ ...state, loading: true });
           await R.onDeleteBucket(state, setState, options);
-        }}
-        onAddFile={async (options) => {
-          // setState({ ...state, loading: true });
-          await R.onAddFile(state, setState, options);
         }}
         onMakeFilecoinStorageDeal={async (options) => {
           // setState({ ...state, loading: true });
