@@ -164,7 +164,11 @@ export default function Dealbar(props) {
           <h2 style={{ marginTop: 24 }}>Deal history for {props.archives.bucketName}</h2>
           <p>Current deals in queue and history of deals.</p>
 
-          <DealCard {...props.archives.current} tag="[ Current ]" />
+          {props.archives.current ? (
+            <DealCard {...props.archives.current} tag="[ Current ]" />
+          ) : (
+            <p style={{ marginTop: 24 }}>No current deals in progress.</p>
+          )}
 
           {props.archives.history.map((h) => {
             return <DealCard {...h} tag="[ History ]" />;
