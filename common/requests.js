@@ -23,6 +23,24 @@ export async function onCreateBucket(state, setState) {
   return await onListBuckets(state, setState);
 }
 
+export async function onGetFilecoinAddresses(state, setState) {
+  const response = await fetch("/api/filecoin/get-address", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ key: state.key }),
+  });
+  const json = await response.json();
+  if (json.error) {
+    alert(json.error);
+    return { error: json.error };
+  }
+
+  return json;
+}
+
 export async function onListBuckets(state, setState) {
   const response = await fetch("/api/buckets/list", {
     method: "POST",

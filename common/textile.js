@@ -17,6 +17,16 @@ export const generateToken = async () => {
   return api;
 };
 
+export const getFilecoinAPIFromUserToken = async ({ key }) => {
+  const identity = await PrivateKey.fromString(key);
+  const filecoin = await Filecoin.withKeyInfo(TEXTILE_KEY_INFO);
+  await filecoin.getToken(identity);
+
+  return {
+    filecoin,
+  };
+};
+
 export const getBucketAPIFromUserToken = async ({ key, bucketName }) => {
   const identity = await PrivateKey.fromString(key);
   const name = U.isEmpty(bucketName) ? BUCKET_NAME : bucketName;

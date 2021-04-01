@@ -62,12 +62,42 @@ export default function Sidebar(props) {
 
       {U.isEmpty(props.state.key) ? null : (
         <React.Fragment>
-          <h2 style={{ marginTop: 48 }}>Current user</h2>
+          <h2 style={{ marginTop: 48 }}>Your LibP2P Private Key</h2>
           <p>
-            You are currently accessing Textile buckets with your key{" "}
             <strong className={styles.dark}>{props.state.key}</strong>
-            <br />
-            <br />
+          </p>
+
+          {props.state.addresses && props.state.addresses.length ? (
+            <React.Fragment>
+              <h2 style={{ marginTop: 24 }}>Your Filecoin address</h2>
+              <p>
+                <strong className={styles.dark}>{props.state.addresses[0].address}</strong>
+              </p>
+            </React.Fragment>
+          ) : null}
+
+          {props.state.addresses && props.state.addresses.length ? (
+            <React.Fragment>
+              <h2 style={{ marginTop: 24 }}>Balance</h2>
+              <p>{U.inFIL(props.state.addresses[0].balance)}</p>
+            </React.Fragment>
+          ) : null}
+
+          {props.state.addresses && props.state.addresses.length ? (
+            <React.Fragment>
+              <h2 style={{ marginTop: 24 }}>Name</h2>
+              <p>{props.state.addresses[0].name}</p>
+            </React.Fragment>
+          ) : null}
+
+          {props.state.addresses && props.state.addresses.length ? (
+            <React.Fragment>
+              <h2 style={{ marginTop: 24 }}>Type</h2>
+              <p>{props.state.addresses[0].type}</p>
+            </React.Fragment>
+          ) : null}
+
+          <p style={{ marginTop: 48 }}>
             Generally, you never want to expose your private key to the public, you never want to
             expose it on the client (like it is here), and you should only expose it on the server
             with proper access control considerations. You have been warned.

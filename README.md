@@ -39,7 +39,7 @@ IPFS_GATEWAY=https://ipfs.io
 The easiest way to generate your `user group` keys for Textile is to download the latest version of the  `hub` https://github.com/textileio/textile/releases/tag/v2.6.6
 
 * Stuck? Read this: [https://docs.textile.io/hub/apis/](https://docs.textile.io/hub/apis/). 
-  * Still stuck? post an issue if you have any questions :-)
+  * Still stuck? Post an issue if you have any questions :-)
 
 Now install dependencies and run the server.
 

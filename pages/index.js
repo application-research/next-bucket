@@ -40,8 +40,14 @@ function Home(props) {
           state={state}
           onChange={setState}
           onSetToken={async (token) => {
-            const next = { ...state, token: null, key: token, loading: true };
+            let next = { ...state, token: null, key: token, loading: true };
             setState(next);
+
+            const response = await R.onGetFilecoinAddresses(next, setState);
+            if (response.addresses) {
+              next = { ...next, addresses: response.addresses };
+            }
+
             await R.onListBuckets(next, setState);
           }}
           onGenerateToken={async () => {

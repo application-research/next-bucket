@@ -1,9 +1,24 @@
+import { FilecoinNumber, Converter } from "@glif/filecoin-number";
+
 const MINUTE = 60;
 const HOUR = MINUTE * 60;
 const DAY = HOUR * 24;
 const WEEK = DAY * 7;
 const MONTH = (DAY * 365) / 12;
 const YEAR = DAY * 365;
+
+export function formatAsFilecoin(number) {
+  return `${number} FIL`;
+}
+
+export function inFIL(number = 0) {
+  const filecoinNumber = new FilecoinNumber(`${number}`, "attofil");
+  const inFil = filecoinNumber.toFil();
+
+  let candidate = `${formatAsFilecoin(inFil)}`;
+
+  return candidate;
+}
 
 export const getBucketDataFromHeader = (header) => {
   try {
