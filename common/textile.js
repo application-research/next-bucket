@@ -116,9 +116,10 @@ export const listBuckets = async (options) => {
       userBuckets[k].items = data.items;
     } catch (e) {
       console.log(e);
-      return {
-        error: "Failed to get bucket size information",
-      };
+      userBuckets[k].bucketSize = 0;
+      userBuckets[k].cid = "FAILED TO RETRIEVE";
+      userBuckets[k].isDir = false;
+      userBuckets[k].items = [];
     }
   }
 
