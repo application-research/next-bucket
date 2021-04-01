@@ -1,5 +1,6 @@
 {
-  "name": "next-daemon-bucket",
+  "name": "next-bucket",
+  "version": "0.0.2",
   "scripts": {
     "dev": "next",
     "build": "next build",

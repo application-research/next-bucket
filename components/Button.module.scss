@@ -1,8 +1,8 @@
 .button {
-  background-color: #000000;
+  background-color: var(--color-background-button);
+  color: var(--color-text-button);
   text-transform: uppercase;
   letter-spacing: 0.1px;
-  color: #ffffff;
   box-sizing: border-box;
   border-radius: 4px;
   outline: 0;

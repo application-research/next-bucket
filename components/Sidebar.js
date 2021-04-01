@@ -9,10 +9,9 @@ import Button from "~/components/Button";
 export default function Sidebar(props) {
   return (
     <div className={styles.sidebar}>
-      <h1>next-daemon-bucket</h1>
+      <h1>next-bucket</h1>
       <p>
-        An example boilerplate application that is a living example of how to use <i>Daemon Land</i>{" "}
-        and <b>Textile</b> Buckets{" "}
+        An example template application for <b>[ Textile ]</b> buckets.{" "}
         <a href="https://github.com/application-research/next-daemon-bucket" target="_blank">
           (view source)
         </a>
@@ -24,9 +23,7 @@ export default function Sidebar(props) {
 
       {U.isEmpty(props.state.key) ? (
         <React.Fragment>
-          <h2 style={{ marginTop: 48 }}>
-            [&nbsp;<b>Textile</b>&nbsp;] Generate token
-          </h2>
+          <h2 style={{ marginTop: 48 }}>Create or set token</h2>
           <p>
             In the input field below, either add your own{" "}
             <a href="https://textileio.github.io/js-textile/docs/hub.privatekey" target="_blank">
@@ -65,9 +62,7 @@ export default function Sidebar(props) {
 
       {U.isEmpty(props.state.key) ? null : (
         <React.Fragment>
-          <h2 style={{ marginTop: 48 }}>
-            [&nbsp;<b>Textile</b>&nbsp;] Your user key
-          </h2>
+          <h2 style={{ marginTop: 48 }}>Current user</h2>
           <p>
             You are currently accessing Textile buckets with your key{" "}
             <strong className={styles.dark}>{props.state.key}</strong>
@@ -93,18 +88,6 @@ export default function Sidebar(props) {
               Reset and delete
             </Button>
           </div>
-        </React.Fragment>
-      )}
-
-      {U.isEmpty(props.state.key) ? null : (
-        <React.Fragment>
-          <h2 style={{ marginTop: 48 }}>
-            [&nbsp;<i>Daemon Land</i>&nbsp;] Save key
-          </h2>
-          <p>
-            Coming soon — save your key to your Daemon Land account to keep your private key safe
-            and to gain access to your data you added to Textile.
-          </p>
         </React.Fragment>
       )}
     </div>

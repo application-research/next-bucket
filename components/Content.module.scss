@@ -24,7 +24,7 @@
 }
 
 .heading {
-  border: 1px solid #ececec;
+  border: 1px solid var(--color-border);
   overflow-wrap: break-word;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -33,7 +33,7 @@
 }
 
 .cell {
-  border: 1px solid #ececec;
+  border: 1px solid var(--color-border);
   overflow-wrap: break-word;
   white-space: pre-wrap;
   word-wrap: break-word;

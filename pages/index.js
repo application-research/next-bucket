@@ -85,7 +85,7 @@ function Home(props) {
           setState({ ...state, loading: true });
           await R.onDeleteBucket(state, setState, options);
         }}
-        onMakeFilecoinStorageDeal={async (options) => {
+        onMakeStorageDeal={async (options) => {
           // setState({ ...state, loading: true });
           await R.onMakeStorageDeal(state, setState, options);
         }}
