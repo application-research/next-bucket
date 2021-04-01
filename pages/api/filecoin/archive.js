@@ -11,12 +11,16 @@ export default async function filecoinArchive(req, res) {
   });
 
   let archive = null;
-  try {
-    archive = await buckets.archive(bucketKey, req.body.settings);
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({ error: "Failed to archive this bucket.", message: e.message });
-  }
 
-  res.json({ archive });
+  // NOTE(jim)
+  // We can't use async/await for the archive call.
+  return buckets
+    .archive(bucketKey, req.body.settings)
+    .then((archive) => {
+      res.json({ archive });
+    })
+    .catch((e) => {
+      console.log(e);
+      res.status(500).json({ error: "Failed to archive this bucket.", message: e.message });
+    });
 }

@@ -73,6 +73,11 @@ export default function Sidebar(props) {
               <p>
                 <strong className={styles.dark}>{props.state.addresses[0].address}</strong>
               </p>
+              <p>
+                <a href="https://verify.glif.io" target="_blank">
+                  Get verified Filecoin storage by verifying this address
+                </a>
+              </p>
             </React.Fragment>
           ) : null}
 
@@ -112,7 +117,14 @@ export default function Sidebar(props) {
                 if (!confirm) {
                   return;
                 }
-                props.onChange({ ...props.state, token: null, key: null, buckets: [] });
+                props.onChange({
+                  addresses: [],
+                  token: null,
+                  key: null,
+                  buckets: [],
+                  selectedArchives: null,
+                  loading: false,
+                });
               }}
             >
               Reset and delete

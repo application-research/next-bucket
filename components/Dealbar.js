@@ -28,7 +28,7 @@ const DealCard = (props) => {
 export default function Dealbar(props) {
   const [formState, setFormState] = React.useState({
     miner: "",
-    repFactor: 5,
+    repFactor: 4,
     dealMinDuration: 525600,
     maxPrice: 0,
   });

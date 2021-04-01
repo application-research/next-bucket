@@ -53,7 +53,14 @@ function Home(props) {
           state={state}
           onChange={setState}
           onSetToken={async (token) => {
-            let next = { ...state, token: null, key: token, loading: true };
+            let next = {
+              addresses: [],
+              buckets: [],
+              token: null,
+              key: token,
+              loading: true,
+              selectedArchives: null,
+            };
             setState(next);
 
             const response = await R.onGetFilecoinAddresses(next, setState);
