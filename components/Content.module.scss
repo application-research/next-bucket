@@ -43,7 +43,17 @@
 
 .action {
   text-decoration: underline;
-  color: blue;
+  color: var(--color-primary);
+  cursor: pointer;
+
+  :hover {
+    color: darkblue;
+  }
+}
+
+.secondary {
+  text-decoration: underline;
+  color: #08bdba;
   cursor: pointer;
 
   :hover {

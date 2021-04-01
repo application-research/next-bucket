@@ -4,6 +4,7 @@ import * as R from "~/common/requests";
 import App from "~/components/App";
 import Sidebar from "~/components/Sidebar";
 import Content from "~/components/Content";
+import Dealbar from "~/components/Dealbar";
 
 const HiddenFileInput = (props) => (
   <input
@@ -32,6 +33,18 @@ function Home(props) {
     fetchData();
   }, []);
 
+  const rightElement = (
+    <Dealbar
+      state={state}
+      archives={state.selectedArchives}
+      onMakeDeal={async (deal) => {
+        setState({ ...state, loading: true });
+        const response = await R.onMakeStorageDeal(state, setState, deal);
+        console.log(response);
+      }}
+    />
+  );
+
   return (
     <App
       sidebar={
@@ -56,6 +69,7 @@ function Home(props) {
           }}
         />
       }
+      right={rightElement}
     >
       <HiddenFileInput
         onChange={async (e) => {
@@ -91,9 +105,9 @@ function Home(props) {
           setState({ ...state, loading: true });
           await R.onDeleteBucket(state, setState, options);
         }}
-        onMakeStorageDeal={async (options) => {
-          // setState({ ...state, loading: true });
-          await R.onMakeStorageDeal(state, setState, options);
+        onGetArchivesForBucket={async (options) => {
+          setState({ ...state, loading: true });
+          await R.onGetArchivesForBucket(state, setState, options);
         }}
       />
     </App>

@@ -1,0 +1,36 @@
+.sidebar {
+  padding: 24px 24px 72px 24px;
+  max-width: 568px;
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.dark {
+  background: var(--color-text);
+}
+
+.bottom {
+  border-top: 1px solid var(--color-border);
+  padding: 24px 24px 72px 24px;
+  max-width: 568px;
+  width: 100%;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  padding: 8px;
+  font-size: 12px;
+  margin-top: 24px;
+}
+
+.detail {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  width: 100%;
+}

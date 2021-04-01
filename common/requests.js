@@ -117,8 +117,53 @@ export async function onAddFile(state, setState, data) {
   return await onListBuckets(state, setState);
 }
 
+export async function onGetArchivesForBucket(state, setState, options) {
+  const response = await fetch("/api/filecoin/get-archive-history", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      bucketName: options.bucketName,
+      bucketKey: options.bucketKey,
+      key: state.key,
+    }),
+  });
+
+  const json = await response.json();
+
+  setState({
+    ...state,
+    selectedArchives: {
+      ...json.archives,
+      bucketName: options.bucketName,
+      bucketKey: options.bucketKey,
+    },
+  });
+
+  console.log(json);
+}
+
 export async function onMakeStorageDeal(state, setState, options) {
-  alert("coming soon");
+  const response = await fetch("/api/filecoin/archive", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      bucketName: options.bucketName,
+      bucketKey: options.bucketKey,
+      settings: options.settings,
+      key: state.key,
+    }),
+  });
+
+  const json = await response.json();
+
+  setState({ ...state, selectedArchives: null });
+  return json;
 }
 
 export async function onDeleteFile(state, setState) {

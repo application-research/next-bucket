@@ -23,7 +23,7 @@ export default function Content(props) {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <h2>Your buckets</h2>
+          <h2>Buckets</h2>
           <p>All of your buckets that you have created will appear here.</p>
           <br />
           <table className={styles.table}>
@@ -45,17 +45,28 @@ export default function Content(props) {
                           onClick={() => props.onSelectBucket({ bucketKey: b.key })}
                         >
                           {b.name}
+                        </span>{" "}
+                        <span
+                          className={styles.secondary}
+                          onClick={() =>
+                            props.onGetArchivesForBucket({
+                              bucketKey: b.key,
+                              bucketName: b.name,
+                            })
+                          }
+                        >
+                          (select for Filecoin)
                         </span>
                       </td>
                       <td className={styles.cell}>{U.bytesToSize(b.bucketSize)}</td>
                       <td className={styles.cell}>{b.items.length}</td>
                       <td className={styles.cell}>
                         <a href={url} target="_blank">
-                          {b.cid}
+                          href:{b.cid}
                         </a>{" "}
                         {b.name !== "data" ? (
                           <span
-                            className={styles.action}
+                            className={styles.secondary}
                             onClick={() =>
                               props.onDeleteBucket({ bucketName: b.name, bucketKey: b.key })
                             }
@@ -76,7 +87,7 @@ export default function Content(props) {
               onClick={props.onListBuckets}
               style={{ marginRight: 16 }}
             >
-              List
+              Refresh
             </Button>
             <Button onClick={props.onCreateBucket} loading={props.state.loading}>
               Create
@@ -132,17 +143,6 @@ export default function Content(props) {
               style={{ marginRight: 16 }}
             >
               Add File
-            </Button>
-            <Button
-              loading={props.state.loading}
-              onClick={() => {
-                props.onMakeStorageDeal({
-                  bucketName: selectedBucket.name,
-                  bucketKey: selectedBucket.key,
-                });
-              }}
-            >
-              Make Filecoin Storage Deal
             </Button>
           </div>
         </React.Fragment>

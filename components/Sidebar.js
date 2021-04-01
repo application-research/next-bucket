@@ -62,14 +62,14 @@ export default function Sidebar(props) {
 
       {U.isEmpty(props.state.key) ? null : (
         <React.Fragment>
-          <h2 style={{ marginTop: 48 }}>Your LibP2P Private Key</h2>
+          <h2 style={{ marginTop: 48 }}>LibP2P Private Key</h2>
           <p>
             <strong className={styles.dark}>{props.state.key}</strong>
           </p>
 
           {props.state.addresses && props.state.addresses.length ? (
             <React.Fragment>
-              <h2 style={{ marginTop: 24 }}>Your Filecoin address</h2>
+              <h2 style={{ marginTop: 24 }}>Filecoin address</h2>
               <p>
                 <strong className={styles.dark}>{props.state.addresses[0].address}</strong>
               </p>

@@ -9,7 +9,8 @@ export default function App(props) {
       <div className={styles.top}>➝ next-buckets {pkg.version}</div>
       <div className={styles.app}>
         <div className={styles.left}>{props.sidebar}</div>
-        <div className={styles.right}>{props.children}</div>
+        <div className={styles.middle}>{props.children}</div>
+        {props.right ? <div className={styles.right}>{props.right}</div> : null}
       </div>
     </React.Fragment>
   );

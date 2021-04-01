@@ -9,7 +9,7 @@ const Button = (props) => {
   if (props.loading) {
     return (
       <button className={U.classNames(styles.button, styles.loading)} style={props.style}>
-        <LoaderSpinner height="14px" />
+        <LoaderSpinner />
       </button>
     );
   }
