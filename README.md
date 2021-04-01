@@ -1,4 +1,4 @@
-![filecoin](https://user-images.githubusercontent.com/310223/112445121-06e92a00-8d0c-11eb-8e39-f126075a5122.png)
+![deals-made-1](https://user-images.githubusercontent.com/310223/113273421-7a051a00-9291-11eb-9b1b-b22603a580e1.png)
 
 # next-bucket
 
@@ -7,11 +7,13 @@ Why would I use this, Jim?
 * Want to put things on [IPFS](https://ipfs.io/) easily.
 * Love using [Textile](https://docs.textile.io/buckets/). Data on a Textile Bucket is stored on [IPLD](https://docs.ipld.io/) and pinned on to [IPFS](https://docs.ipfs.io/how-to/pin-files/) automatically.
 * You can use any gateway to retrieve your [CID](https://ipfs.io/ipfs/bafybeibgy5fbkzb7jenk2ibo4vch2vmf7tbg5motfe2hpaaod3xvwoizmy/nft.gif). This CID is a GIF version of the NFT-linked-asset that exists for [https://foundation.app/ertdfgcvb/1613493082123-355](https://foundation.app/ertdfgcvb/1613493082123-355).
-* **[SOON]** Take your bucket and put it on the Filecoin Network with a storage deal.
+* **[IN PROGRESS]** Take your bucket and put it on the Filecoin Network with a storage deal.
 
 ### Introduction
 
 Try it online: https://next-bucket.onrender.com
+
+![deals-made-2](https://user-images.githubusercontent.com/310223/113273921-f697f880-9291-11eb-99ee-a2d98cd81b2d.png)
 
 This template should provide an easy way for you to set up Textile Buckets and pin content to the IPFS network. [NextJS](https://nextjs.org/) is the logical choice because [NextJS](https://nextjs.org) and decentralized solutions such as [Magic](https://magic.link/posts/magic-link-nextjs) are an awesome combination if you want to create a website such as [OpenSea](https://opensea.io/).
 
