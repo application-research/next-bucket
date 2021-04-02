@@ -5,6 +5,8 @@ import * as U from "~/common/utilities";
 export default async function filecoinArchive(req, res) {
   await S.cors(req, res);
 
+  console.log(req.body.settings);
+
   const { buckets, bucketKey, bucketRoot, bucketName, error } = await T.getBucketAPIFromUserToken({
     key: req.body.key,
     bucketName: req.body.bucketName,
@@ -15,7 +17,7 @@ export default async function filecoinArchive(req, res) {
   // NOTE(jim)
   // We can't use async/await for the archive call.
   return buckets
-    .archive(bucketKey, req.body.settings)
+    .archive(bucketKey, { archiveConfig: JSON.parse(JSON.stringify(req.body.settings)) })
     .then((archive) => {
       res.json({ archive });
     })

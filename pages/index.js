@@ -41,6 +41,12 @@ function Home(props) {
         console.log(deal);
         const response = await R.onMakeStorageDeal(state, setState, deal);
         console.log(response);
+        if (response.error) {
+          alert(response.error);
+          return;
+        }
+
+        alert("SUCCESS, use hub buck archive list --thread to track progress.");
       }}
     />
   );

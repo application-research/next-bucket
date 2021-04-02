@@ -139,10 +139,9 @@ export default function Dealbar(props) {
                       dealMinDuration: formState.dealMinDuration,
                       countryCodes: [],
                       maxPrice: formState.maxPrice,
-                      renew: {
-                        enabled: false,
-                        threshold: formState.maxPrice,
-                      },
+                      renew: null,
+                      fastRetrieval: true,
+                      dealStartOffset: 8640,
                     },
                   });
                 }}
