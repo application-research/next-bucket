@@ -1,4 +1,4 @@
-![deals-made-1](https://user-images.githubusercontent.com/310223/113273421-7a051a00-9291-11eb-9b1b-b22603a580e1.png)
+![template](https://user-images.githubusercontent.com/310223/113375377-17109300-9324-11eb-9969-7795a8a49888.png)
 
 # next-bucket
 
