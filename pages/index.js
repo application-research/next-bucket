@@ -28,7 +28,6 @@ function Home(props) {
     async function fetchData() {
       const response = await fetch("/api");
       const json = await response.json();
-      console.log(json);
     }
     fetchData();
   }, []);
@@ -39,6 +38,7 @@ function Home(props) {
       archives={state.selectedArchives}
       onMakeDeal={async (deal) => {
         setState({ ...state, loading: true });
+        console.log(deal);
         const response = await R.onMakeStorageDeal(state, setState, deal);
         console.log(response);
       }}

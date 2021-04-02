@@ -32,7 +32,6 @@ export default function Dealbar(props) {
     dealMinDuration: 525600,
     maxPrice: 0,
   });
-  console.log(props);
 
   if (props.state.loading) {
     return (
