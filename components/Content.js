@@ -7,9 +7,12 @@ import Input from "~/components/Input";
 import Button from "~/components/Button";
 
 export default function Content(props) {
-  const selectedBucket =
-    props.state.buckets && props.state.buckets.find((b) => b.key === props.state.selectedBucketKey);
-
+  let selectedBucket;
+  if (props.state.buckets && props.state.buckets.length) {
+    selectedBucket =
+      props.state.buckets &&
+      props.state.buckets.find((b) => b.key === props.state.selectedBucketKey);
+  }
   return (
     <div className={styles.content}>
       {U.isEmpty(props.state.key) ? (
