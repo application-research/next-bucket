@@ -13,6 +13,7 @@ export default function Content(props) {
       props.state.buckets &&
       props.state.buckets.find((b) => b.key === props.state.selectedBucketKey);
   }
+
   return (
     <div className={styles.content}>
       {U.isEmpty(props.state.key) ? (

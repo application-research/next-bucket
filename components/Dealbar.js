@@ -8,17 +8,29 @@ import Button from "~/components/Button";
 import LoaderSpinner from "~/components/LoaderSpinner";
 
 const DealCard = (props) => {
+  const classNames = U.classNames(styles.card, props.status === 5 ? styles.success : null);
+
   return (
-    <div className={styles.card}>
+    <div className={classNames}>
       <p className={styles.detail}>
         <strong>
           {props.tag} {U.toDate(props.createdAt)}
         </strong>
       </p>
+      {!U.isEmpty(props.failureMsg) ? (
+        <p className={styles.error}>failureMsg: {props.failureMsg}</p>
+      ) : (
+        <p className={styles.detail}>
+          {props.status !== 5 ? (
+            <strong>this deal has a chance of succeeding! ask the miner for log reports.</strong>
+          ) : (
+            <strong>SUCCESS! This CID is stored on the Filecoin network.</strong>
+          )}
+        </p>
+      )}
       <p className={styles.detail}>aborted: {String(props.aborted)}</p>
       <p className={styles.detail}>archiveStatus: {props.archiveStatus}</p>
       <p className={styles.detail}>cid: {props.cid}</p>
-      <p className={styles.detail}>failureMsg: {props.failureMsg}</p>
       <p className={styles.detail}>jobId: {props.jobId}</p>
       <p className={styles.detail}>status: {props.status}</p>
     </div>
