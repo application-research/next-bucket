@@ -59,12 +59,12 @@ const Metamask = () => {
   return (
     <div className={styles.wrapper}>
       {currentState === "signedIn" ? (
-        <p>Connected: {account}</p>
+        <span>Connected: {account}</span>
       ) : (
-        <Button onClick={handleLogin} style={{ whiteSpace: "nowrap" }}>
+        <span className={styles.item} onClick={handleLogin}>
           Connect{currentState === "signingIn" && "ing"} To Metatask
           {currentState === "signingIn" && "loading"}
-        </Button>
+        </span>
       )}
     </div>
   );
