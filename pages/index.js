@@ -5,10 +5,18 @@ import App from "~/components/App";
 import Sidebar from "~/components/Sidebar";
 import Content from "~/components/Content";
 import Dealbar from "~/components/Dealbar";
+import Metamask from "../components/Metamask";
 
 const HiddenFileInput = (props) => (
   <input
-    style={{ position: "absolute", top: 0, left: 0, height: 1, width: 1, opacity: 0 }}
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      height: 1,
+      width: 1,
+      opacity: 0,
+    }}
     multiple
     type="file"
     id="file"
@@ -53,6 +61,7 @@ function Home(props) {
 
   return (
     <App
+      topRight={<Metamask />}
       sidebar={
         <Sidebar
           gateway={props.gateway}
