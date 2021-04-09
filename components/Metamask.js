@@ -62,7 +62,7 @@ const Metamask = () => {
         <span>Connected: {account}</span>
       ) : (
         <span className={styles.item} onClick={handleLogin}>
-          Connect{currentState === "signingIn" && "ing"} To Metatask
+          Connect{currentState === "signingIn" && "ing"} To Metamask
           {currentState === "signingIn" && "loading"}
         </span>
       )}
