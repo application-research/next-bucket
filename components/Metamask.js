@@ -37,6 +37,7 @@ const Metamask = () => {
 
       dispatch("success");
     } catch (e) {
+      alert(`ERROR ${e.code}, ${e.message}`);
       dispatch("error");
     }
   };
