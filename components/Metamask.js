@@ -2,8 +2,6 @@ import styles from "~/components/Metamask.module.scss";
 
 import * as React from "react";
 
-import Button from "~/components/Button";
-
 const META_TASK_STATE_GRAPH = {
   idle: { confirmMetamask: "metamaskExist" },
   metamaskExist: { signin: "signingIn" },
@@ -52,9 +50,11 @@ const Metamask = () => {
     setAccount(currentAccount);
   };
 
-  if (typeof window !== "undefined") {
-    window.ethereum.on("accountsChanged", handleAccountsChange);
-  }
+  React.useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", handleAccountsChange);
+    }
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -63,7 +63,6 @@ const Metamask = () => {
       ) : (
         <span className={styles.item} onClick={handleLogin}>
           Connect{currentState === "signingIn" && "ing"} To Metamask
-          {currentState === "signingIn" && "loading"}
         </span>
       )}
     </div>
