@@ -30,7 +30,6 @@ function onSetLoading(state, setState) {
 
 function Home(props) {
   const [state, setState] = React.useState({});
-  console.log({ state, props });
 
   React.useEffect(() => {
     async function fetchData() {
@@ -46,9 +45,7 @@ function Home(props) {
       archives={state.selectedArchives}
       onMakeDeal={async (deal) => {
         setState({ ...state, loading: true });
-        console.log(deal);
         const response = await R.onMakeStorageDeal(state, setState, deal);
-        console.log(response);
         if (response.error) {
           alert(response.error);
           return;
@@ -95,7 +92,6 @@ function Home(props) {
     >
       <HiddenFileInput
         onChange={async (e) => {
-          console.log("on add file");
           e.persist();
 
           const next = { ...state, loading: true };

@@ -21,6 +21,10 @@ const Metamask = () => {
   const [currentState, dispatch] = React.useReducer(reducer, "idle");
   const [account, setAccount] = React.useState();
 
+  if (process.browser && !window.ethereum) {
+    return <div className={styles.wrapper}>Metamask Disabled</div>;
+  }
+
   useDetectMetaMask({ onDetection: () => dispatch("confirmMetamask") });
 
   let currentAccount = null;
@@ -44,16 +48,21 @@ const Metamask = () => {
   };
 
   const handleAccountsChange = (accounts) => {
+    console.log(accounts);
     if (accounts.length === 0) {
       alert("ERROR, Please connect to Metamask wallet on your computer");
     } else if (accounts[0] !== currentAccount) {
       currentAccount = accounts[0];
     }
     setAccount(currentAccount);
+
+    console.log("selected account", window.ethereum.selectedAccount);
   };
 
   if (typeof window !== "undefined") {
-    window.ethereum.on("accountsChanged", handleAccountsChange);
+    if (window.ethereum) {
+      window.ethereum.on("accountsChanged", handleAccountsChange);
+    }
   }
 
   return (
@@ -73,7 +82,8 @@ const Metamask = () => {
 const useDetectMetaMask = ({ onDetection }) => {
   React.useEffect(() => {
     if (typeof window.ethereum !== "undefined" && window.ethereum.isMetaMask) {
-      onDetection();
+      const response = onDetection();
+      console.log("detection response", response);
     }
   }, []);
 };
