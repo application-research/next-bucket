@@ -1,13 +1,13 @@
-import styles from "~/components/Dealbar.module.scss";
+import styles from "@components/Dealbar.module.scss";
 
 import * as React from "react";
-import * as U from "~/common/utilities";
+import * as U from "@common/utilities";
 
-import Input from "~/components/Input";
-import Button from "~/components/Button";
-import LoaderSpinner from "~/components/LoaderSpinner";
+import Input from "@components/Input";
+import Button from "@components/Button";
+import LoaderSpinner from "@components/LoaderSpinner";
 
-const DealCard = (props) => {
+const DealCard = (props: any): any => {
   const classNames = U.classNames(styles.card, props.status === 5 ? styles.success : null);
 
   return (
@@ -37,7 +37,7 @@ const DealCard = (props) => {
   );
 };
 
-export default function Dealbar(props) {
+export default function Dealbar(props: any): any {
   const [formState, setFormState] = React.useState({
     miner: "",
     repFactor: 4,

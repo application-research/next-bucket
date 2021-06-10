@@ -1,7 +1,7 @@
 import Cors from "cors";
 
-import * as T from "~/common/textile";
-import * as S from "~/common/server";
+import * as T from "@common/textile";
+import * as S from "@common/server";
 
 export default async function bucketsCreate(req, res) {
   await S.cors(req, res);

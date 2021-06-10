@@ -1,6 +1,6 @@
 import Cors from "cors";
 
-export function initMiddleware(middleware) {
+export function initMiddleware(middleware): any {
   return (req, res) =>
     new Promise((resolve, reject) => {
       middleware(req, res, (result) => {

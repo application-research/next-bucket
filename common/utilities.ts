@@ -7,20 +7,19 @@ const WEEK = DAY * 7;
 const MONTH = (DAY * 365) / 12;
 const YEAR = DAY * 365;
 
-export function formatAsFilecoin(number) {
+export const formatAsFilecoin = (number: any): string => {
+  const printString: string = `${String(number)} FIL`;
   return `${number} FIL`;
-}
+};
 
-export function inFIL(number = 0) {
+export const inFIL = (number = 0): string => {
   const filecoinNumber = new FilecoinNumber(`${number}`, "attofil");
   const inFil = filecoinNumber.toFil();
+  const printString: string = `${formatAsFilecoin(inFil)}`;
+  return printString;
+};
 
-  let candidate = `${formatAsFilecoin(inFil)}`;
-
-  return candidate;
-}
-
-export const getBucketDataFromHeader = (header) => {
+export const getBucketDataFromHeader = (header): any => {
   try {
     const entity = header.replace("next-daemon-bucket ", "");
     const split = entity.split("|");
@@ -40,30 +39,31 @@ export const getBucketDataFromHeader = (header) => {
   }
 };
 
-export const isEmpty = (string) => {
-  // NOTE(jim): If a number gets passed in, it isn't considered empty for zero.
-  if (string === 0) {
+export const isEmpty = (text: any): boolean => {
+  if (text === 0) {
     return false;
   }
 
-  if (!string) {
+  if (!text) {
     return true;
   }
 
-  if (typeof string === "object") {
+  if (typeof text === "object") {
     return true;
   }
 
-  if (string.length === 0) {
+  if (text.length === 0) {
     return true;
   }
 
-  string = string.toString();
+  text = text.toString();
 
-  return !string.trim();
+  return Boolean(!text.trim());
 };
 
-export function classNames() {
+const hasOwn = {}.hasOwnProperty;
+
+export function classNames(...args: any[]) {
   var classes = [];
 
   for (var i = 0; i < arguments.length; i++) {
@@ -97,7 +97,7 @@ export function classNames() {
   return classes.join(" ");
 }
 
-export const bytesToSize = (bytes, decimals = 2) => {
+export const bytesToSize = (bytes, decimals = 2): string => {
   if (bytes === 0) return "0 Bytes";
 
   const k = 1024;
@@ -109,14 +109,13 @@ export const bytesToSize = (bytes, decimals = 2) => {
   return `${(bytes / Math.pow(k, i)).toFixed(dm)} ${sizes[i]}`;
 };
 
-export const toDate = (data) => {
+export const toDate = (data): string => {
   const date = new Date(data);
   return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
 };
 
-export const unixTimestampToDate = (unixTime) => {
+export const unixTimestampToDate = (unixTime): string => {
   const date = new Date(unixTime * 1000);
-  console.log(date);
   return toDate(date);
 };
 

@@ -1,9 +1,9 @@
 import Cors from "cors";
 import BusBoyConstructor from "busboy";
 
-import * as T from "~/common/textile";
-import * as S from "~/common/server";
-import * as U from "~/common/utilities";
+import * as T from "@common/textile";
+import * as S from "@common/server";
+import * as U from "@common/utilities";
 
 const HIGH_WATER_MARK = 1024 * 1024 * 3;
 
@@ -52,8 +52,8 @@ export default async function bucketsAddFile(req, res) {
   });
 
   let push;
-  const _createStreamAndUploadToTextile = async (s) => {
-    return new Promise(function (resolve, reject) {
+  const _createStreamAndUploadToTextile = async (s): Promise<any> => {
+    return new Promise<void>(function (resolve, reject): any {
       s.on("file", async function (fieldname, stream, filename, encoding, mime) {
         console.log(filename);
         console.log(encoding);
@@ -73,7 +73,7 @@ export default async function bucketsAddFile(req, res) {
             console.log(e.message);
           });
 
-        return resolve();
+        resolve();
       });
 
       s.on("error", function (e) {

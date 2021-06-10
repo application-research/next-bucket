@@ -1,6 +1,6 @@
-import * as T from "~/common/textile";
-import * as S from "~/common/server";
-import * as U from "~/common/utilities";
+import * as T from "@common/textile";
+import * as S from "@common/server";
+import * as U from "@common/utilities";
 
 export default async function filecoinGetArchiveHistory(req, res) {
   await S.cors(req, res);

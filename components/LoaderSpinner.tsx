@@ -1,4 +1,4 @@
-import styles from "~/components/LoaderSpinner.module.scss";
+import styles from "@components/LoaderSpinner.module.scss";
 
 import * as React from "react";
 

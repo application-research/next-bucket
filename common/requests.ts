@@ -2,7 +2,7 @@ export async function onGenerateToken(state, setState) {
   const response = await fetch("/api/token/generate");
   const json = await response.json();
 
-  setState({ ...state, token: json.token, loading: false });
+  return setState({ ...state, token: json.token, loading: false });
 }
 
 export async function onCreateBucket(state, setState) {
@@ -32,6 +32,7 @@ export async function onGetFilecoinAddresses(state, setState) {
     },
     body: JSON.stringify({ key: state.key }),
   });
+
   const json = await response.json();
   if (json.error) {
     alert(json.error);

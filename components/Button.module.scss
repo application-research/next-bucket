@@ -1,25 +1,26 @@
 .button {
-  background-color: var(--color-background-button);
-  color: var(--color-text-button);
-  text-transform: uppercase;
-  letter-spacing: 0.1px;
+  background-color: var(--color-button-background);
+  color: var(--color-button-text);
+  letter-spacing: 0.3px;
   box-sizing: border-box;
-  border-radius: 4px;
+  text-transform: uppercase;
+  border-radius: 2px;
   outline: 0;
   border: 0;
-  min-height: 32px;
+  min-height: 40px;
   padding: 4px 24px 4px 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 0.785rem;
+  font-weight: 500;
   overflow-wrap: break-word;
   user-select: none;
   cursor: pointer;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
   transition: 200ms ease all;
   transform: scale(1);
+  text-decoration: none;
 
   &:hover {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);

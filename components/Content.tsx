@@ -1,10 +1,10 @@
-import styles from "~/components/Content.module.scss";
+import styles from "@components/Content.module.scss";
 
 import * as React from "react";
-import * as U from "~/common/utilities";
+import * as U from "@common/utilities";
 
-import Input from "~/components/Input";
-import Button from "~/components/Button";
+import Input from "@components/Input";
+import Button from "@components/Button";
 
 export default function Content(props) {
   let selectedBucket;
@@ -116,7 +116,7 @@ export default function Content(props) {
                 <th className={styles.heading}>CID</th>
               </tr>
               {selectedBucket.items.map((i) => {
-                const url = `${props.gateway}${i.path}`;
+                const url = `https://ipfs.io/${i.path}`;
                 return (
                   <tr key={i.path} className={styles.row}>
                     <td className={styles.cell}>{i.name}</td>

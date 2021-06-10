@@ -1,11 +1,11 @@
 import * as React from "react";
-import * as R from "~/common/requests";
+import * as R from "@common/requests";
 
-import App from "~/components/App";
-import Sidebar from "~/components/Sidebar";
-import Content from "~/components/Content";
-import Dealbar from "~/components/Dealbar";
-import Metamask from "../components/Metamask";
+import App from "@components/App";
+import Sidebar from "@components/Sidebar";
+import Content from "@components/Content";
+import Dealbar from "@components/Dealbar";
+import Metamask from "@components/Metamask";
 
 const HiddenFileInput = (props) => (
   <input
@@ -29,13 +29,22 @@ function onSetLoading(state, setState) {
 }
 
 function Home(props) {
-  const [state, setState] = React.useState({});
+  const [state, setState] = React.useState({
+    selectedArchives: null,
+    selectedBucketKey: null,
+    addresses: null,
+    buckets: null,
+    token: null,
+    loading: false,
+    key: null,
+  });
 
   React.useEffect(() => {
     async function fetchData() {
       const response = await fetch("/api");
       const json = await response.json();
     }
+
     fetchData();
   }, []);
 
@@ -66,6 +75,7 @@ function Home(props) {
           onChange={setState}
           onSetToken={async (token) => {
             let next = {
+              ...state,
               addresses: [],
               buckets: [],
               token: null,

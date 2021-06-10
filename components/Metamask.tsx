@@ -1,8 +1,14 @@
-import styles from "~/components/Metamask.module.scss";
+import styles from "@components/Metamask.module.scss";
 
 import * as React from "react";
 
-import Button from "~/components/Button";
+import Button from "@components/Button";
+
+declare global {
+  interface Window {
+    ethereum: any;
+  }
+}
 
 const META_TASK_STATE_GRAPH = {
   idle: { confirmMetamask: "metamaskExist" },
@@ -36,7 +42,7 @@ const Metamask = () => {
 
     dispatch("signin");
     try {
-      const accounts = await ethereum.request({
+      const accounts = await window.ethereum.request({
         method: "eth_requestAccounts",
       });
       handleAccountsChange(accounts);

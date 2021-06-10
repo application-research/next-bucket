@@ -1,4 +1,4 @@
-import * as U from "~/common/utilities";
+import * as U from "@common/utilities";
 
 import { Buckets, PrivateKey, Filecoin, Client, ThreadID } from "@textile/hub";
 

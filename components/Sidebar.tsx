@@ -1,10 +1,10 @@
-import styles from "~/components/Sidebar.module.scss";
+import styles from "@components/Sidebar.module.scss";
 
 import * as React from "react";
-import * as U from "~/common/utilities";
+import * as U from "@common/utilities";
 
-import Input from "~/components/Input";
-import Button from "~/components/Button";
+import Input from "@components/Input";
+import Button from "@components/Button";
 
 export default function Sidebar(props) {
   return (
