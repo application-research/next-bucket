@@ -116,7 +116,7 @@ export default function Content(props) {
                 <th className={styles.heading}>CID</th>
               </tr>
               {selectedBucket.items.map((i) => {
-                const url = `https://ipfs.io/${i.path}`;
+                const url = `https://ipfs.io${i.path}`;
                 return (
                   <tr key={i.path} className={styles.row}>
                     <td className={styles.cell}>{i.name}</td>
